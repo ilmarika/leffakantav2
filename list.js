@@ -11,11 +11,12 @@ var settings = {
 }
                   
 $.ajax(settings).done(function (response) {
-    console.log(response);
+    console.log(Object.keys(response).length);
     console.log(JSON.stringify(response));
-    for (let i = 0; i < response.lenght; i++) {
-        document.getElementById("list").innerHTML = response[i].Title;
-        console.log(response[i]);
-        console.log("loop");
+    for (let i = 0; i < Object.keys(response).length; i++) {
+        let node = document.createElement("div");
+        let textnode = document.createTextNode(response[i].Title);
+        node.appendChild(textnode);
+        document.getElementById("list").appendChild(node);
     }
 });
