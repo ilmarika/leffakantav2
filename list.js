@@ -1,3 +1,4 @@
+//Setting up the db connection
 var settings = {
     "async": true,
     "crossDomain": true,
@@ -11,10 +12,11 @@ var settings = {
 }
                   
 $.ajax(settings).done(function (response) {
-    console.log(Object.keys(response).length);
-    console.log(JSON.stringify(response));
+
+    //iterate through the response array, and add divs with titles 
     for (let i = 0; i < Object.keys(response).length; i++) {
         let node = document.createElement("div");
+        node.setAttribute('id', 'Title');
         let textnode = document.createTextNode(response[i].Title);
         node.appendChild(textnode);
         document.getElementById("list").appendChild(node);
