@@ -2,10 +2,12 @@
 
 let data; //JSON data
 
+//Setting up the omdb query
 function getName() {
   return 'http://www.omdbapi.com/?apikey=8fd06dfe&t='+ document.getElementById("nimi").value +'';
 }
 
+//fetching the results from omdb
 function fetchRequest() {
     let url = getName();
     fetch(url)
@@ -14,15 +16,19 @@ function fetchRequest() {
       })
       .then( (jsonresult) => {
         data = jsonresult; //store json to variable data
-        //console.log('JSON result: '+JSON.stringify(jsonresult));
+        console.log(jsonresult.Title);
         var movie = document.getElementById('movie');
-        movie.innerHTML = JSON.stringify(jsonresult);
+        let title = document.createElement("div");
+        title.setAttribute("id", 'Title');
+        title.innerHTML = jsonresult.Title;
         var poster = document.getElementById('poster');
         poster.innerHTML = "<img src="+ jsonresult.Poster +"></img>";
+        movie.appendChild(title);
     });
 }
 elem = fetchRequest();
 
+//Func to add the movie to db
 function addAction() {
 
     let settings = {
@@ -39,7 +45,5 @@ function addAction() {
         "data": JSON.stringify(data)
     }
 
-    $.ajax(settings).done(function (response) {
-    console.log(response)
-    })
+    $.ajax(settings).done(function (response) {})
 }
