@@ -18,12 +18,27 @@ function fetchRequest() {
         data = jsonresult; //store json to variable data
         console.log(jsonresult.Title);
         var movie = document.getElementById('movie');
+        $("#movie").empty();    //empty the div 'movie' that the details are not displayed many times over.
+
+        // Create elements for the movie details to show in the webpage, add text to elements and append them to the main element.
         let title = document.createElement("div");
+        let released = document.createElement("div");
+        let country = document.createElement("div");
+        let genre = document.createElement("div");
         title.setAttribute("id", 'Title');
-        title.innerHTML = jsonresult.Title;
+        released.setAttribute("id", 'Released');
+        country.setAttribute("id", 'Country');
+        genre.setAttribute("id", 'Genre');
+        title.innerHTML = 'Title: '+ jsonresult.Title;
+        released.innerHTML = 'Release date: '+ jsonresult.Released;
+        country.innerHTML = 'Country: '+ jsonresult.Country;
+        genre.innerHTML = 'Genre: '+ jsonresult.Genre;
         var poster = document.getElementById('poster');
         poster.innerHTML = "<img src="+ jsonresult.Poster +"></img>";
         movie.appendChild(title);
+        movie.appendChild(released);
+        movie.appendChild(country);
+        movie.appendChild(genre);
     });
 }
 
