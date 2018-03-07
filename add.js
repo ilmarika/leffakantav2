@@ -26,7 +26,6 @@ function fetchRequest() {
         movie.appendChild(title);
     });
 }
-elem = fetchRequest();
 
 //Func to add the movie to db
 function addAction() {
@@ -47,3 +46,11 @@ function addAction() {
 
     $.ajax(settings).done(function (response) {})
 }
+
+$( '#submit' ).click(function() {
+    fetchRequest();
+})
+
+$( '#add' ).click(function() {
+    addAction();
+})
