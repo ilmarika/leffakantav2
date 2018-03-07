@@ -39,7 +39,20 @@ function fetchRequest() {
         movie.appendChild(released);
         movie.appendChild(country);
         movie.appendChild(genre);
+
+        showConfirm();
     });
+}
+
+function showConfirm() {
+    let confirm = document.getElementById('confirm');
+    let text = document.createElement('div');
+    text.innerHTML = 'Do you want to add the title to the collection?';
+    let button = document.createElement('button');
+    button.setAttribute('id', 'add');
+    button.innerHTML = 'Add';
+    confirm.appendChild(text);
+    confirm.appendChild(button);
 }
 
 //Func to add the movie to db
@@ -66,6 +79,6 @@ $( '#submit' ).click(function() {
     fetchRequest();
 })
 
-$( '#add' ).click(function() {
+$( '#confirm' ).on('click', '#add', function() {
     addAction();
 })
