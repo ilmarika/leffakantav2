@@ -24,7 +24,10 @@ function fetchRequest() {
 
         // Create elements for the movie details to show in the webpage, add text to elements and append them to the main element.
         if(jsonresult.Title == undefined) {
-            movie.innerHTML = 'Title not found!'
+            let notfound = document.createElement('div');
+            notfound.setAttribute('class', 'alert alert-danger');
+            notfound.innerHTML = 'Title not found!'
+            movie.appendChild(notfound);
         } else {
             let title = document.createElement("div");
             let released = document.createElement("div");
