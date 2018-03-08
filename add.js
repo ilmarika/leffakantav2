@@ -68,7 +68,7 @@ function addAction() {
     let settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://leffakanta-da2e.restdb.io/rest/leffat",
+        "url": "https://leffakanta2-da2e.restdb.io/rest/leffat",
         "method": "POST",
         "headers": {
             "content-type": "application/json",
@@ -76,10 +76,26 @@ function addAction() {
             "cache-control": "no-cache"
         },
         "process-data": false,
-        "data": JSON.stringify(data)
+        "data": JSON.stringify(data),
+        'statusCode': {
+            201: function() {
+                let success = document.createElement('div');
+                success.setAttribute('class', 'alert alert-success');
+                success.innerHTML = '<strong>Success!</strong> Title added successfully.';
+                document.getElementById('confirm').appendChild(success);
+            }
+        },
+        'error': function() {
+            let fail = document.createElement('div');
+            fail.setAttribute('class', 'alert alert-danger');
+            fail.innerHTML = '<strong>Fail!</strong> Adding the title failed.';
+            document.getElementById('confirm').appendChild(fail);
+        }
     }
 
-    $.ajax(settings).done(function (response) {})
+    $.ajax(settings).done(function (response) {
+        console.log(response.Response);
+    })
 }
 
 $( '#submit' ).click(function() {
