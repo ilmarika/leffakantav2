@@ -19,28 +19,35 @@ function fetchRequest() {
         console.log(jsonresult.Title);
         var movie = document.getElementById('movie');
         $("#movie").empty();    //empty the div 'movie' that the details are not displayed many times over.
+        $('#confirm').empty();
+        $('#poster').empty();
 
         // Create elements for the movie details to show in the webpage, add text to elements and append them to the main element.
-        let title = document.createElement("div");
-        let released = document.createElement("div");
-        let country = document.createElement("div");
-        let genre = document.createElement("div");
-        title.setAttribute("id", 'Title');
-        released.setAttribute("id", 'Released');
-        country.setAttribute("id", 'Country');
-        genre.setAttribute("id", 'Genre');
-        title.innerHTML = 'Title: '+ jsonresult.Title;
-        released.innerHTML = 'Release date: '+ jsonresult.Released;
-        country.innerHTML = 'Country: '+ jsonresult.Country;
-        genre.innerHTML = 'Genre: '+ jsonresult.Genre;
-        var poster = document.getElementById('poster');
-        poster.innerHTML = "<img src="+ jsonresult.Poster +"></img>";
-        movie.appendChild(title);
-        movie.appendChild(released);
-        movie.appendChild(country);
-        movie.appendChild(genre);
+        if(jsonresult.Title == undefined) {
+            movie.innerHTML = 'Title not found!'
+        } else {
+            let title = document.createElement("div");
+            let released = document.createElement("div");
+            let country = document.createElement("div");
+            let genre = document.createElement("div");
+            title.setAttribute("id", 'Title');
+            released.setAttribute("id", 'Released');
+            country.setAttribute("id", 'Country');
+            genre.setAttribute("id", 'Genre');
+            title.innerHTML = 'Title: '+ jsonresult.Title;
+            released.innerHTML = 'Release date: '+ jsonresult.Released;
+            country.innerHTML = 'Country: '+ jsonresult.Country;
+            genre.innerHTML = 'Genre: '+ jsonresult.Genre;
+            var poster = document.getElementById('poster');
+            poster.innerHTML = "<img src="+ jsonresult.Poster +"></img>";
+            movie.appendChild(title);
+            movie.appendChild(released);
+            movie.appendChild(country);
+            movie.appendChild(genre);
+    
+            showConfirm();
 
-        showConfirm();
+        }
     });
 }
 
@@ -81,4 +88,5 @@ $( '#submit' ).click(function() {
 
 $( '#confirm' ).on('click', '#add', function() {
     addAction();
+
 })
