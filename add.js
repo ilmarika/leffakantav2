@@ -71,7 +71,7 @@ function addAction() {
     let settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://leffakanta2-da2e.restdb.io/rest/leffat",
+        "url": "https://leffakanta-da2e.restdb.io/rest/leffat",
         "method": "POST",
         "headers": {
             "content-type": "application/json",
