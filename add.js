@@ -80,6 +80,7 @@ function addAction() {
         },
         "process-data": false,
         "data": JSON.stringify(data),
+        //depending on if the ajax request is success or not, user sees different alert messages.
         'statusCode': {
             201: function() {
                 let success = document.createElement('div');
@@ -100,6 +101,11 @@ function addAction() {
         console.log(response.Response);
     })
 }
+
+document.getElementById("nimi").onsubmit = function(){
+    console.log("enter");
+    fetchRequest();
+};
 
 $( '#submit' ).click(function() {
     fetchRequest();
