@@ -1,8 +1,12 @@
+//get the search term from GET
+let url = new URL($(location).attr('href'));
+let param = url.searchParams.get('q');
+
 //Setting up the db connection
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://leffakanta-da2e.restdb.io/rest/leffat",
+    "url": "https://leffakanta-da2e.restdb.io/rest/leffat?q={}&filter="+param,
     "method": "GET",
     "headers": {
       "content-type": "application/json",
