@@ -16,9 +16,10 @@ $.ajax(settings).done(function (response) {
     //iterate through the response array, and add divs with titles 
     for (let i = 0; i < Object.keys(response).length; i++) {
         let node = document.createElement("div");
-        node.setAttribute('id', 'Title');
-        let textnode = document.createTextNode(response[i].Title);
-        node.appendChild(textnode);
+        let link = document.createElement('a');
+        link.setAttribute('href', 'details.html?id='+ response[i]._id)
+        link.innerHTML = response[i].Title;
+        node.appendChild(link);
         document.getElementById("list").appendChild(node);
     }
 });
