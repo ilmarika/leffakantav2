@@ -52,6 +52,11 @@ $.ajax(settings).done(function (response) {
     movie.appendChild(genre);
     movie.appendChild(synopsis);
     del.appendChild(delButton);
+    menu = document.createElement('li');
+    menu.className = 'breadcrumb-item active';
+    menu.setAttribute('aria-current', 'page');
+    menu.innerHTML = response[0].Title;
+    document.getElementById('menu').appendChild(menu);
     
   }
 
