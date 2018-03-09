@@ -6,7 +6,7 @@ let param = url.searchParams.get('q');
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://leffakanta-da2e.restdb.io/rest/leffat?q={}&filter="+param,
+    "url": "https://leffakanta-da2e.restdb.io/rest/leffat?q={}&filter="+param+'&sort=Title',
     "method": "GET",
     "headers": {
       "content-type": "application/json",
