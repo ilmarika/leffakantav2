@@ -15,7 +15,7 @@ let settings = {
     }
 }
 $.ajax(settings).done(function (response) {
-  
+
   // Create elements for the movie details to show in the webpage, add text to elements and append them to the main element.
   if (Object.keys(response).length == 0 || response[0].Title == undefined) {
     let notfound = document.createElement('div');
@@ -67,7 +67,22 @@ function deleteTitle(id) {
       "content-type": "application/json",
       "x-apikey": "5a9e49463f8df0b91f627ce5",
       "cache-control": "no-cache"
-    }
+    },
+    //depending on if the ajax request is success or not, user sees different alert messages.
+    'statusCode': {
+      200: function() {
+          let success = document.createElement('div');
+          success.setAttribute('class', 'alert alert-success');
+          success.innerHTML = 'Title deleted successfully.';
+          document.getElementById('delete').appendChild(success);
+      }
+    },
+    'error': function() {
+      let fail = document.createElement('div');
+      fail.setAttribute('class', 'alert alert-danger');
+      fail.innerHTML = 'Deleting the title failed.';
+      document.getElementById('delete').appendChild(fail);
+  }
   }
   $.ajax(settings).done(function (response) {
     console.log(response);
