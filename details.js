@@ -29,11 +29,17 @@ $.ajax(settings).done(function (response) {
     let country = document.createElement("div");
     let genre = document.createElement("div");
     let synopsis = document.createElement('div');
+    let del = document.getElementById('delete');
+    let delButton = document.createElement('button');
     title.setAttribute("id", 'Title');
     released.setAttribute("id", 'Released');
     country.setAttribute("id", 'Country');
     genre.setAttribute("id", 'Genre');
     synopsis.setAttribute('id', 'Synopsis');
+    delButton.type = 'button';
+    delButton.className = 'btn btn-danger';
+    delButton.innerText = 'Delete title';
+    delButton.id = 'delButton';
     title.innerHTML = 'Title: ' + response[0].Title;
     released.innerHTML = 'Release date: ' + response[0].Released;
     country.innerHTML = 'Country: ' + response[0].Country;
@@ -46,7 +52,30 @@ $.ajax(settings).done(function (response) {
     movie.appendChild(country);
     movie.appendChild(genre);
     movie.appendChild(synopsis);
+    del.appendChild(delButton);
+    
   }
 
 });
 
+function deleteTitle(id) {
+  let settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'https://leffakanta-da2e.restdb.io/rest/leffat/'+id,
+    "method": "DELETE",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": "5a9e49463f8df0b91f627ce5",
+      "cache-control": "no-cache"
+    }
+  }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  })
+}
+
+$( '#delete' ).on('click', '#delButton', function() {
+  console.log("mitä vittua?");
+  deleteTitle(id);
+})
