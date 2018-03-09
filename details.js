@@ -15,10 +15,9 @@ let settings = {
     }
 }
 $.ajax(settings).done(function (response) {
-  console.log(response[0]);
-  console.log(response[0].Title);
+  
   // Create elements for the movie details to show in the webpage, add text to elements and append them to the main element.
-  if (response[0].Title == undefined) {
+  if (Object.keys(response).length == 0 || response[0].Title == undefined) {
     let notfound = document.createElement('div');
     notfound.setAttribute('class', 'alert alert-danger');
     notfound.innerHTML = 'Title not found!'
