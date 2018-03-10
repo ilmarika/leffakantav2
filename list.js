@@ -1,7 +1,6 @@
 //get the search term from GET
 let url = new URL($(location).attr('href'));
 let param = url.searchParams.get('q');
-console.log(param);
 
 //Setting up the db connection
 var settings = {

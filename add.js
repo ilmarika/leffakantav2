@@ -16,7 +16,6 @@ function fetchRequest() {
       })
       .then( (jsonresult) => {
         data = jsonresult; //store json to variable data
-        console.log(jsonresult.Title);
         var movie = document.getElementById('movie');
         $("#movie").empty();    //empty the div 'movie' that the details are not displayed many times over.
         $('#confirm').empty();
@@ -97,13 +96,11 @@ function addAction() {
         }
     }
 
-    $.ajax(settings).done(function (response) {
-        console.log(response.Response);
+    $.ajax(settings).done(function (response) {;
     })
 }
 
 document.getElementById("nimi").onsubmit = function(){
-    console.log("enter");
     fetchRequest();
 };
 

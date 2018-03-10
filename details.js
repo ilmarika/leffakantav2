@@ -1,9 +1,6 @@
 let url = new URL($(location).attr('href'));
 let id = url.searchParams.get('id');
 let q =url.searchParams.get('q');
-console.log(id);
-console.log(q);
-console.log(url);
 
 //Setting up the db connection
 let settings = {
