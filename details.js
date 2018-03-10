@@ -1,6 +1,9 @@
 let url = new URL($(location).attr('href'));
 let id = url.searchParams.get('id');
+let q =url.searchParams.get('q');
 console.log(id);
+console.log(q);
+console.log(url);
 
 //Setting up the db connection
 let settings = {
@@ -94,10 +97,17 @@ function handleResponse(response) {
     movie.appendChild(genre);
     movie.appendChild(synopsis);
     del.appendChild(delButton);
-    menu = document.createElement('li');
+    let search = document.createElement('li');
+    let menu = document.createElement('li');
+    let searchUrl = document.createElement('a');
+    searchUrl.href = 'list.html?q='+q;
+    searchUrl.innerHTML = 'Search';
+    search.className = 'breadcrumb-item';
     menu.className = 'breadcrumb-item active';
     menu.setAttribute('aria-current', 'page');
     menu.innerHTML = response[0].Title;
+    search.appendChild(searchUrl);
+    document.getElementById('menu').appendChild(search);
     document.getElementById('menu').appendChild(menu);
     
   }
