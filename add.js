@@ -17,7 +17,7 @@ function fetchRequest() {
       .then( (jsonresult) => {
         data = jsonresult; //store json to variable data
         var movie = document.getElementById('movie');
-        $("#movie").empty();    //empty the div 'movie' that the details are not displayed many times over.
+        $("#movie").empty();    //empty the divs that the details are not displayed many times over.
         $('#confirm').empty();
         $('#poster').empty();
 
@@ -52,7 +52,7 @@ function fetchRequest() {
         }
     });
 }
-
+//Show confirm dialog if user wants to add the title to a db
 function showConfirm() {
     let confirm = document.getElementById('confirm');
     let text = document.createElement('div');
