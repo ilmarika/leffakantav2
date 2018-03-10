@@ -100,10 +100,6 @@ function addAction() {
     })
 }
 
-document.getElementById("nimi").onsubmit = function(){
-    fetchRequest();
-};
-
 $( '#submit' ).click(function() {
     fetchRequest();
 })
