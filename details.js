@@ -53,7 +53,6 @@ function deleteTitle(id) {
 }
 
 $( '#delete' ).on('click', '#delButton', function() {
-  console.log("mitä vittua?");
   deleteTitle(id);
 })
 
