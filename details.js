@@ -1,3 +1,4 @@
+//set up variables storing the GET parameters
 let url = new URL($(location).attr('href'));
 let id = url.searchParams.get('id');
 let q =url.searchParams.get('q');
@@ -16,7 +17,7 @@ let settings = {
 }
 $.ajax(settings).done(function (response) {
 
-  handleResponse(response);
+  renderPage(response);
 
 });
 
@@ -48,7 +49,6 @@ function deleteTitle(id) {
   }
   }
   $.ajax(settings).done(function (response) {
-    console.log(response);
   })
 }
 
@@ -56,7 +56,7 @@ $( '#delete' ).on('click', '#delButton', function() {
   deleteTitle(id);
 })
 
-function handleResponse(response) {
+function renderPage(response) {
   // Create elements for the movie details to show in the webpage, add text to elements and append them to the main element.
   if (Object.keys(response).length == 0 || response[0].Title == undefined) {
     let notfound = document.createElement('div');
