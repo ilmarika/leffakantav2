@@ -6,3 +6,7 @@ $( '#submit' ).click(function() {
 $( '#all' ).click(function() {
     window.location.assign('list.html?q=')
 })
+
+$( '#add' ).click(function() {
+    window.location.assign('add.html')
+})
