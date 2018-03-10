@@ -11,20 +11,23 @@
     </head>
     
 <body>
-        <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item" aria-current="page">Home</li>
-                </ol>
-            </nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" aria-current="page">Home</li>
+        </ol>
+    </nav>
     <div>Welcome to the movie database</div>
     <br>
     <div class="form-group">
-        <label for="search">Search a title:</label>
-        <input type="text" class="form-control" id="search" name="q" value="">
-        <button type="button" id="submit" name="submit">Search</button>
+        <form id="form">
+            <label for="search">Search a title:</label>
+            <input type="text" class="form-control" id="search" name="q" value="">
+            <button type="button" id="submit" name="submit">Search</button>
+        </form>
     </div>
 
     <button type="button" class="btn btn-link" id="all">List all titles</div>
+    <button type="button" class="btn btn-link" id="add">Add a title</div>
     
 </body>
 </html>
