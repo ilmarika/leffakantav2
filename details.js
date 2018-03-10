@@ -70,6 +70,7 @@ function handleResponse(response) {
     let country = document.createElement("div");
     let genre = document.createElement("div");
     let synopsis = document.createElement('div');
+    let cast = document.createElement('div');
     let del = document.getElementById('delete');
     let delButton = document.createElement('button');
     title.setAttribute("id", 'Title');
@@ -77,6 +78,7 @@ function handleResponse(response) {
     country.setAttribute("id", 'Country');
     genre.setAttribute("id", 'Genre');
     synopsis.setAttribute('id', 'Synopsis');
+    cast.setAttribute('id', 'Cast');
     delButton.type = 'button';
     delButton.className = 'btn btn-danger';
     delButton.innerText = 'Delete title';
@@ -86,6 +88,7 @@ function handleResponse(response) {
     country.innerHTML = 'Country: ' + response[0].Country;
     genre.innerHTML = 'Genre: ' + response[0].Genre;
     synopsis.innerHTML = 'Synopsis: ' + response[0].Plot;
+    cast.innerHTML = 'Cast: '+response[0].Actors;
     var poster = document.getElementById('poster');
     poster.innerHTML = "<img src=" + response[0].Poster + "></img>";
     movie.appendChild(title);
@@ -93,6 +96,7 @@ function handleResponse(response) {
     movie.appendChild(country);
     movie.appendChild(genre);
     movie.appendChild(synopsis);
+    movie.appendChild(cast);
     del.appendChild(delButton);
     let search = document.createElement('li');
     let menu = document.createElement('li');
