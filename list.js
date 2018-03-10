@@ -1,6 +1,7 @@
 //get the search term from GET
 let url = new URL($(location).attr('href'));
 let param = url.searchParams.get('q');
+console.log(param);
 
 //Setting up the db connection
 var settings = {
@@ -21,7 +22,7 @@ $.ajax(settings).done(function (response) {
     for (let i = 0; i < Object.keys(response).length; i++) {
         let node = document.createElement("div");
         let link = document.createElement('a');
-        link.setAttribute('href', 'details.html?id='+ response[i]._id)
+        link.setAttribute('href', 'details.html?id='+ response[i]._id+'&q='+param);
         link.innerHTML = response[i].Title;
         node.appendChild(link);
         document.getElementById("list").appendChild(node);
